@@ -1,0 +1,23 @@
+threads: 30
+ips:
+  - '192.168.1.1'
+requests: 10
+feeder:
+  load:
+    threshold: 500
+    count: 1000
+  type: mysql
+    credentials:
+      host: localhost
+      port: 3306
+      username: user
+      password: pass
+      database: domains
+    config:
+      src_table: domain_table
+      src_column: domain
+
+results:
+  type: file
+    details:
+      filename: '/tmp/results.csv'
